@@ -1,0 +1,33 @@
+extends layout.pug
+
+block header
+    a.btn.btn-Light(href='/', style='margin-left:10px; margin-top:10px') Retourner a l'observatoir
+    
+block content
+    .col-md-6
+       p #{id_singe}
+       table.table.table-red
+           thead
+                tr
+                    th Enclos
+                    th Capacite
+                    th lier l'enclos au singe
+                    th modifier enclos
+                    th supprimer enclos
+
+           tbody
+           each enclos in enclo 
+               tr
+                    td
+                       - var url5 = '/enclos/' + enclos.id
+                       a.btn.btn-Light(href=url5) #{enclos.NomEnclos}
+                    td #{enclos.TypeEnclos}
+                    td 
+                       - var url2 = '/liersingeenclos/' + id_singe + '/' + enclos.id
+                       a.btn.btn-Light(href=url2, role='button') Migrer 
+                    td 
+                       - var url3 = '/modifenclos/' + enclos.id
+                       a.btn.btn-Light(href=url3, role='button') Appeler bob le bricoleur
+                    td
+                       - var url4 = '/deleteenclos/' + enclos.id
+                       a.btn.btn-Light(href=url4, role='button') comme en 45 (hiroshima nagasaki)

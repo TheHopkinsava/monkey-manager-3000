@@ -1,0 +1,19 @@
+extends layout.pug
+
+block header
+    a.btn.btn-Light(href='/', style='margin-left:10px; margin-top:10px') Retourner a l'observatoir
+
+block content
+    .col-md-6
+       h #{singe.id}
+       h.display-4  Vue detail singe
+              p.card-text nom :  #{singe.nomSinge}
+              p.card-text espece: #{singe.espece}
+              p.card-text note: #{singe.poidSinge}
+              p.card-text age: #{singe.age}
+              p.card-text sexe: #{singe.sexe} 
+              p.card-text couleur: #{singe.couleur}
+              - var url1 = '/modifysinge/' + singe.id
+              a.btn.btn-Light(href='url1') Modifier
+              - var url2 = '/deletesinge/' + singe.id
+              a.btn.btn-Light(href='url2')(style='margin-left:10px') L'executer froidement

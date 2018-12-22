@@ -1,0 +1,28 @@
+extends layout.pug
+
+block header
+    a.btn.btn-Light(href='/', style='margin-left:10px; margin-top:10px') Retourner a l'observatoir
+
+block content
+    h2 Mettre a jour un singe
+    - var url = '/modifysinge/' + id
+        form(method='POST' action=url style='margin-left:10px;margin-right:70%;')
+            div.form-group
+                label(for='nomSinge') Nom:
+                input#nomSinge.form-control(type="text", placeholder="Exemple :Prophete Mohamed" name='nomSinge')
+            div.form-group
+                label(for='espece') Race:
+                input#espece.form-control(type="text", placeholder="Exemple :Arabe" name='espece')
+            div.form-group
+                label(for='poidSinge') Poid:
+                input#poidSinge.form-control(type="float", placeholder="Exemple :Celui de ta mere (170kg mamene)" name='poidSinge')
+            div.form-group
+                label(for='age') Age:
+                input#age.form-control(type="float", placeholder="Son age quoi (on avait pas d'inspiration)" name='age')
+            div.form-group
+                label(for='sexe') Sexe:
+                input#sexe.form-control(type="text", placeholder="C'est un garcon ou c'est un avortement a vous le choix" name='sexe')
+            div.form-group
+                label(for='couleur') Couleur:
+                input#couleur.form-control(type="text", placeholder="Exemple : Blanc (la seule vraie couleur)" name='couleur')
+        button.btn.btn-Light(type='submit') 500 euros s'il vous plait

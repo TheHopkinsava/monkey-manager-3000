@@ -1,0 +1,18 @@
+extends layout.pug
+
+block header
+    a.btn.btn-Light(href='/', style='margin-left:10px; margin-top:10px') Retourner a l'observatoir
+
+block content
+    - var url = '/postenclos' 
+    form(method='POST' action=url style='margin-left:10px;margin-right:70%;')
+        div.form-group
+            label(for='NomEnclos') Nom:
+            input#nomEnclos.form-control(type="text", placeholder="Exemple :Marseille" name='NomEnclos')
+        div.form-group
+            label(for='TypeEnclos') Type d'enclos:
+            input#typeEnclos.form-control(type="text", placeholder="Exemple :cite,favelas,goulag,ghetto,..." name='TypeEnclos')
+        div.form-group
+            label(for='Taille') Taille (en Hectares):
+            input#Taille.form-control(type="float", placeholder="Ma bite en fait 3 pour comparaison" name='Taille')
+        button.btn.btn-Light(type='submit') L'enclos est fait.

@@ -1,0 +1,68 @@
+extends layout.pug
+
+block content
+    h1= title   
+    .col-md-6
+        h1  MonkeyManager3000(version 3.0 celle du ghetto)
+        
+        
+        table.table.table-green
+            thead
+                tr
+                    th Nom de ton singe
+                    th Race
+                    th Fatiness
+                    th Age
+                    th Sexe
+                    th Couleur
+                    th Change ton singe
+                    th Lier ton singe a un enclos
+                    th Droguer ton singe a mort
+            tbody
+            each singes in singe 
+                tr
+                    td 
+                       - var url = '/getsinge/' + singes.id
+                       a.btn.btn-Light(href=url) #{singes.nomSinge}
+                    td #{singes.espece}
+                    td #{singes.poidSinge}
+                    td #{singes.age}
+                    td #{singes.sexe}
+                    td #{singes.couleur}
+                    td 
+                       - var url1 = '/modifysinge/' + singes.id
+                       a.btn.btn-Light(href=url1, role='button') Modifier 
+                    td 
+                       - var url6 = '/liersinge/' + singes.id
+                       a.btn.btn-Light(href=url6, role='button') Envoyer au ghetto
+                    td
+                       - var url2 = '/deletesinge/' + singes.id
+                       a.btn.btn-Light(href=url2, role='button') Balle perdue
+        a.btn.btn-Light(href='/createsinge/', role='button') Fabrique d'etre supreme
+        p 
+        table.table.table-green
+           thead
+                tr
+                    th Nom de l'enclos
+                    th Type de quartier
+                    th Taille (en Hectares)
+                    th Modifier ton enclos 
+                    th Hiroshimaiser ton enclos
+
+           tbody
+           each enclos in enclo 
+               tr
+                    td 
+                       - var url5 = '/enclos/' + enclos.id
+                       a.btn.btn-Light(href=url5) #{enclos.NomEnclos}
+                    td #{enclos.TypeEnclos}
+                    td #{enclos.Taille}
+                    td 
+                       - var url3 = '/modifenclos/' + enclos.id
+                       a.btn.btn-Light(href=url3, role='button') Modifier 
+                    td
+                       - var url4 = '/deleteenclo/' + enclos.id
+                       a.btn.btn-Light(href=url4, role='button') Largage de la bombe
+        
+        
+        a.btn.btn-Light(href='/createEnclos/', role='button') Construction de cites
